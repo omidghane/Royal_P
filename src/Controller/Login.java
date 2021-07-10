@@ -12,22 +12,21 @@ import javafx.scene.text.Text;
 import java.io.File;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Login {
 
-    private BufferedReader br;
-    private BufferedWriter bw;
     private ObjectOutputStream out;
     private ObjectInputStream in;
-//    private FileOutputStream out_sign_number;
-    private FileReader in_sign_number;
 
     private User user ;
 
     private File filename;
 
     private int sign_num ;
+
+    private ArrayList<User> users;
 
     @FXML
     private ImageView royalImage;
@@ -48,13 +47,13 @@ public class Login {
     private Text errorText;
 
     public Login() throws IOException {
-        filename = new File("user");
-        out = new ObjectOutputStream(new FileOutputStream(filename,true));
-//        in = new ObjectInputStream(new FileInputStream(filename));
-//        user = new User();
-        in_sign_number = new FileReader("user_number");
-        sign_num = in_sign_number.read();
-        System.out.println(sign_num);
+        filename = new File("D:\\user2");
+        out = new ObjectOutputStream(new FileOutputStream(filename,true)){
+            protected void writeStreamHeader() throws IOException {
+                reset();
+            }
+        };
+//
     }
 
     @FXML
@@ -68,29 +67,17 @@ public class Login {
             in = new ObjectInputStream(fi);
 
             if (event.getSource() == loginButton) {
-                    System.out.println(usernameField.getCharacters());
+//                    System.out.println(usernameField.getCharacters());
 
-                if(!check_double_username()){
-                    errorText.setText("username does not exist");
-                    return;
-                }else if(!check_password(fi)){
-                    errorText.setText("password is wrong");
+                if(!check_login()){
+                    errorText.setText("username or password is wrong");
                     return;
                 }
 
-//        finally {
-//            try {
-////                out.close();
-//                in.close();
-//            }catch(IOException e){
-//                e.printStackTrace();
-//            }
-//        }
             }
 
             if (event.getSource() == signUpButton) {
-                System.out.println(usernameField.getCharacters());
-//                    in = new ObjectInputStream(fi);
+//                System.out.println(usernameField.getCharacters());
                 if(check_double_username()){
                     errorText.setText("this username exist");
                     return;
@@ -98,7 +85,6 @@ public class Login {
 
                 sign_num++;
                 out_sign_number.write(sign_num);
-                System.out.println( "sign num: " +in_sign_number.read());
                 out.writeObject(new User(String.valueOf(usernameField.getCharacters()), String.valueOf(passwordField.getCharacters()), 1));
                 System.out.println("signed successfully f");
             }
@@ -109,30 +95,37 @@ public class Login {
         }
     }
 
-    private boolean check_password(FileInputStream fi) throws IOException, ClassNotFoundException {
-//        in = new ObjectInputStream(fi);
-        for(int i = 0 ; i < sign_num ; i++){
-            User user = (User)in.readObject();
-            System.out.println(user.getUsername() + " pass");
-            if(passwordField.getText().equals(user.getPassword())){
-                System.out.println("pass ok");
-                return true;
+    private boolean check_login() throws IOException, ClassNotFoundException {
+        while(true){
+            try {
+                User user = (User) in.readObject();
+                System.out.println(user.getUsername() + " pass");
+                if(usernameField.getText().equals(user.getUsername())) {
+                    if (passwordField.getText().equals(user.getPassword())) {
+                        System.out.println("pass ok");
+                        return true;
+                    }
+                }
+            }catch(EOFException e){
+                break;
             }
         }
-//        errorText.setText("password is wrong");
         return false;
     }
 
     private boolean check_double_username() throws IOException, ClassNotFoundException {
-//        System.out.println("sign up num: " + in_sign_number.read());
-//        in = new ObjectInputStream(fi);
-       for(int i = 0 ; i < sign_num ; i++){
-            User user = (User)in.readObject();
-            System.out.println(user.getUsername() + " K");
-            if(usernameField.getText().equals(user.getUsername())){
-                System.out.println("equal user k");
-                return true;
-            }
+       while(true){
+           try {
+               User user = (User) in.readObject();
+               System.out.println(user.getUsername() + " K");
+               if (usernameField.getText().equals(user.getUsername())) {
+                   System.out.println("equal user k");
+                   return true;
+               }
+           }catch(EOFException e){
+               System.out.println("er 1");
+               break;
+           }
         }
         return false;
     }
@@ -140,7 +133,6 @@ public class Login {
     private void next_page() {
 
     }
-
 
 }
 
