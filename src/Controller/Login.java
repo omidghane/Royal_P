@@ -1,16 +1,23 @@
 package Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import javax.swing.text.View;
 import java.io.File;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Login {
 
@@ -38,92 +45,69 @@ public class Login {
     @FXML
     private Text errorText;
 
-    public Login() throws IOException {
-        filename = new File("user");
-        out = new ObjectOutputStream(new FileOutputStream(filename, true)) {
-            protected void writeStreamHeader() throws IOException {
-                reset();
-            }
-        };
-    }
 
     @FXML
-    void join_process(ActionEvent event) {
-        errorText.setText("");
-        if (String.valueOf(usernameField.getCharacters()).equals("") ||
-                String.valueOf(passwordField.getCharacters()).equals("")) {
-            System.out.println("no 1");
-            return;
+    void join_process(ActionEvent event) throws IOException {
+
+        if (event.getSource() == signUpButton) {
+            String name = usernameField.getText();
+            String password = passwordField.getText();
+            if (Files.exists(Path.of(name))) {
+                errorText.setText("you have already signed up!");
+                return;
+            }
+            this.user = new User((usernameField.getText()), (passwordField.getText()), 1);
+            save(name, user);
         }
-        try (FileInputStream fi = new FileInputStream(filename)
-        ) {
-            in = new ObjectInputStream(fi);
 
-            if (event.getSource() == loginButton) {
-//                    System.out.println(usernameField.getCharacters());
-
-                if (!check_login()) {
-                    errorText.setText("username or password is wrong");
-                    return;
+        if (event.getSource() == loginButton) {
+            String name = usernameField.getText();
+            String password = passwordField.getText();
+            if (Files.exists(Path.of(name))) {
+                try (FileInputStream fi = new FileInputStream(name)) {
+                    ObjectInputStream objectInputStream = new ObjectInputStream(fi);
+                    User user = (User) objectInputStream.readObject();
+                    if (user.getPassword().equals(password)) {
+                        this.user = user;
+                    } else {
+                        errorText.setText("password or name is incorrect");
+                        return;
+                    }
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
                 }
-
+            } else {
+                errorText.setText("you should sign up first");
+                return;
             }
+        }
+        next_page(user);
+    }
 
-            if (event.getSource() == signUpButton) {
-//                System.out.println(usernameField.getCharacters());
-                if (check_double_username()) {
-                    errorText.setText("this username exist");
-                    return;
-                }
-
-
-                out.writeObject(new User((usernameField.getText()), (passwordField.getText()), 1));
-                System.out.println("signed successfully f");
-            }
-
-            next_page();
-        } catch (IOException | ClassNotFoundException e) {
+    public void save(String fileName, User theUser) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(theUser);
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    private boolean check_login() throws IOException, ClassNotFoundException {
-        while (true) {
-            try {
-                User user = (User) in.readObject();
-                System.out.println(user.getUsername() + " pass");
-                if (usernameField.getText().equals(user.getUsername())) {
-                    if (passwordField.getText().equals(user.getPassword())) {
-                        System.out.println("pass ok");
-                        return true;
-                    }
-                }
-            } catch (EOFException e) {
-                break;
-            }
-        }
-        return false;
-    }
-
-    private boolean check_double_username() throws IOException, ClassNotFoundException {
-        while (true) {
-            try {
-                User user = (User) in.readObject();
-                System.out.println(user.getUsername() + " K");
-                if (usernameField.getText().equals(user.getUsername())) {
-                    System.out.println("equal user k");
-                    return true;
-                }
-            } catch (EOFException e) {
-                System.out.println("er 1");
-                break;
-            }
-        }
-        return false;
-    }
-
-    private void next_page() {
-
+    private void next_page(User user) throws IOException {
+        Stage stage = (Stage) signUpButton.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View/menu.fxml"));
+        loader.load();
+        menuController menuController = loader.getController();
+        menuController.setUser(user);
+        Parent root = loader.getRoot();
+//        Parent root = FXMLLoader.load(getClass().getResource("../View/menu.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Menu");
+        stage.setResizable(false);
+        stage.show();
     }
 
 }
