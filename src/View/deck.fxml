@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.deckController">
+    <children>
+        <ImageView fitHeight="500.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/wooden.jpg"/>
+            </image>
+        </ImageView>
+        <Label layoutX="217.0" layoutY="14.0" prefHeight="46.0" prefWidth="166.0" text="BattleDeck">
+            <font>
+                <Font name="System Bold" size="31.0"/>
+            </font>
+        </Label>
+        <ImageView fitHeight="100.0" fitWidth="80.0" layoutX="14.0" layoutY="60.0" onMouseClicked="#choosingBarbarian"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/BarbariansCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="80.0" layoutX="111.0" layoutY="60.0" onMouseClicked="#choosingArcher"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/ArchersCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="80.0" layoutX="207.0" layoutY="60.0" onMouseClicked="#choosingDragon"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/BabyDragonCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="80.0" layoutX="303.0" layoutY="60.0" onMouseClicked="#choosingPekka"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Card_icon_Mini_P.E.K.K.A..jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="80.0" layoutX="405.0" layoutY="60.0" onMouseClicked="#choosingWizard"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/WizardCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="80.0" layoutX="498.0" layoutY="60.0" onMouseClicked="#choosingGiant"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/GiantCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="76.0" layoutX="16.0" layoutY="167.0" onMouseClicked="#choosingvalkery"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/ValkyrieCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="91.0" fitWidth="76.0" layoutX="113.0" layoutY="167.0" onMouseClicked="#choosingArrows"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/ArrowsCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="91.0" fitWidth="76.0" layoutX="306.0" layoutY="167.0" onMouseClicked="#choosingFireBall"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/FireballCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="91.0" fitWidth="73.0" layoutX="209.0" layoutY="167.0" onMouseClicked="#choosingRage"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/RageCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="91.0" fitWidth="76.0" layoutX="405.0" layoutY="167.0" onMouseClicked="#choosingCanon"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/CannonCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fitHeight="91.0" fitWidth="73.0" layoutX="500.0" layoutY="167.0" onMouseClicked="#choosingInferno"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/InfernoTowerCard.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <Label layoutX="222.0" layoutY="258.0" prefHeight="46.0" prefWidth="156.0" text="your cards">
+            <font>
+                <Font name="System Bold" size="31.0"/>
+            </font>
+        </Label>
+        <ImageView fx:id="slot1" fitHeight="95.0" fitWidth="80.0" layoutX="111.0" layoutY="304.0"
+                   onMouseClicked="#deleteSlot1" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot2" fitHeight="95.0" fitWidth="80.0" layoutX="205.0" layoutY="304.0"
+                   onMouseClicked="#deleteSlot2" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot3" fitHeight="90.0" fitWidth="80.0" layoutX="307.0" layoutY="307.0"
+                   onMouseClicked="#seleteSlot3" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot4" fitHeight="90.0" fitWidth="80.0" layoutX="405.0" layoutY="307.0"
+                   onMouseClicked="#deleteSlot4" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot5" fitHeight="90.0" fitWidth="80.0" layoutX="111.0" layoutY="399.0"
+                   onMouseClicked="#deleteSlot5" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot6" fitHeight="90.0" fitWidth="80.0" layoutX="203.0" layoutY="399.0"
+                   onMouseClicked="#deleteSlot6" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot7" fitHeight="90.0" fitWidth="80.0" layoutX="302.0" layoutY="399.0"
+                   onMouseClicked="#deleteSlot7" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <ImageView fx:id="slot8" fitHeight="90.0" fitWidth="80.0" layoutX="403.0" layoutY="399.0"
+                   onMouseClicked="#deleteSlot8" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/photoes/Clash-Royale-emblem.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+        <Button fx:id="backButtton" focusTraversable="false" layoutX="14.0" layoutY="447.0" mnemonicParsing="false"
+                onAction="#backToMenu" style="-fx-background-color: #ff8f00;" text="back">
+            <font>
+                <Font name="System Bold" size="17.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <Button fx:id="saveButton" focusTraversable="false" layoutX="528.0" layoutY="447.0" mnemonicParsing="false"
+                onAction="#saveCards" style="-fx-background-color: #ff8f00;" text="save" textFill="#161515">
+            <font>
+                <Font name="System Bold" size="17.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+    </children>
+</AnchorPane>
