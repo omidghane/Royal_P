@@ -2,10 +2,16 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Inferno tower.
+ */
 public class InfernoTower extends Building{
     private int level;
     private int[] damage;
 
+    /**
+     * Instantiates a new Inferno tower.
+     */
     public InfernoTower() {
         level = 1;
         card_index = 4;
@@ -25,6 +31,11 @@ public class InfernoTower extends Building{
         shut_image = new Image("/photoes/towerDefense_tile063.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){
@@ -58,6 +69,11 @@ public class InfernoTower extends Building{
         return damage;
     }
 
+    /**
+     * Sets damage range.
+     *
+     * @param damage the damage
+     */
     public void set_DamageRange(int[] damage) {
         this.damage = damage;
     }

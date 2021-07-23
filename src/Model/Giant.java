@@ -2,15 +2,21 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Giant.
+ */
 public class Giant extends Troop{
     private int level;
 
+    /**
+     * Instantiates a new Giant.
+     */
     public Giant() {
         level = 1;
         card_index = 2;
         set_level_base();
         setCost(5);
-        setHit_speed(1.5);
+        setHit_speed(1.4);
         setSpeed(SPEED.SLOW);
         setTarget(TARGET.BUILDING);
         setRange(0);
@@ -23,8 +29,14 @@ public class Giant extends Troop{
     public void image_newing() {
         card_image = new Image("/photoes/ship (6).png");
         card_image_bar = new Image("/photoes/GiantCard.jpg");
+        shut_image = new Image("/photoes/explosion3.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){

@@ -21,10 +21,21 @@ import java.io.ObjectInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * The type Profile controller.
+ */
 public class profileController {
 
+    /**
+     * The User.
+     */
     User user;
 
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
     public void setUser(User user) {
 
         this.user = user;
@@ -69,10 +80,15 @@ public class profileController {
     @FXML
     private Button updateProfileButton;
 
+    /**
+     * Back to menu.
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void backToMenu(ActionEvent event) throws IOException {
-        Media media = new Media(new File("D:\\Java Projects\\Royal_P\\src\\" +
-                "sounds\\Mouse-Click-03-c-FesliyanStudios.com.mp3")
+        Media media = new Media(new File("C:\\Users\\HUAWEI\\IdeaProjects\\royal_A\\src\\sounds\\src_sounds_Mouse-Click-03-c-FesliyanStudios.com.mp3")
                 .toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -90,10 +106,14 @@ public class profileController {
         stage.show();
     }
 
+    /**
+     * Updating profile.
+     *
+     * @param event the event
+     */
     @FXML
     void updatingProfile(ActionEvent event) {
-        Media media = new Media(new File("D:\\Java Projects\\Royal_P\\src\\sounds" +
-                "\\zapsplat_sport_gold_ball_knock_into_hole_cup_001_64188.mp3")
+        Media media = new Media(new File("C:\\Users\\HUAWEI\\IdeaProjects\\royal_A\\src\\sounds\\src_sounds_zapsplat_sport_gold_ball_knock_into_hole_cup_001_64188.mp3")
                 .toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -105,17 +125,7 @@ public class profileController {
                 User theUser = (User) objectInputStream.readObject();
                 nameText.setText(theUser.getUsername());
                 xpText.setText(String.valueOf(theUser.getXP()));
-                if ((theUser.getXP()) < 200) {
-                    levelText.setText("1");
-                } else if (theUser.getXP() > 200 && theUser.getXP() < 400) {
-                    levelText.setText("2");
-                } else if (theUser.getXP() > 400 && theUser.getXP() < 600) {
-                    levelText.setText("3");
-                } else if (theUser.getXP() > 600 && theUser.getXP() < 800) {
-                    levelText.setText("4");
-                } else if (theUser.getXP() > 800 && theUser.getXP() < 1000) {
-                    levelText.setText("5");
-                }
+                levelText.setText(String.valueOf(theUser.getGrade()));
                 setDeck(theUser.getCardNamesInString().get(0), slot1);
                 setDeck(theUser.getCardNamesInString().get(1), slot2);
                 setDeck(theUser.getCardNamesInString().get(2), slot3);
@@ -139,6 +149,12 @@ public class profileController {
 //        levelText.setText(String.valueOf(level));
     }
 
+    /**
+     * Sets deck.
+     *
+     * @param str  the str
+     * @param slot the slot
+     */
     public void setDeck(String str, ImageView slot) {
         Image archer = new Image("/photoes/ArchersCard.jpg");
         Image arrow = new Image("/photoes/ArrowsCard.jpg");

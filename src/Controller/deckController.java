@@ -18,14 +18,28 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+/**
+ * The type Deck controller.
+ */
 public class deckController {
 
+    /**
+     * The User.
+     */
     User user;
 
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     * The Slots.
+     */
     public ArrayList<Boolean> slots = new ArrayList<>();
 
     private Boolean sl1 = false;
@@ -51,11 +65,21 @@ public class deckController {
     private Boolean rageUsed = false;
     private Boolean dragonUsed = false;
 
+    /**
+     * Gets slots.
+     *
+     * @return the slots
+     */
     public ArrayList<Boolean> getSlots() {
         return slots;
     }
 
 
+    /**
+     * Sets image.
+     *
+     * @param image the image
+     */
     public void settingImage(Image image) {
         if (!sl1) {
             slot1.setImage(image);
@@ -85,6 +109,11 @@ public class deckController {
     }
 
 
+    /**
+     * Deleting slut.
+     *
+     * @param slot the slot
+     */
     public void deletingSlut(ImageView slot) {
         Image archer = new Image("/photoes/ArchersCard.jpg");
         Image arrow = new Image("/photoes/ArrowsCard.jpg");
@@ -155,10 +184,15 @@ public class deckController {
     @FXML
     private ImageView slot8;
 
+    /**
+     * Back to menu.
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void backToMenu(ActionEvent event) throws IOException {
-        Media media = new Media(new File("D:\\Java Projects\\Royal_P\\src\\" +
-                "sounds\\Mouse-Click-03-c-FesliyanStudios.com.mp3")
+        Media media = new Media(new File("C:\\Users\\HUAWEI\\IdeaProjects\\royal_A\\src\\sounds\\src_sounds_Mouse-Click-03-c-FesliyanStudios.com.mp3")
                 .toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -176,6 +210,11 @@ public class deckController {
         stage.show();
     }
 
+    /**
+     * Saving card.
+     *
+     * @param slot the slot
+     */
     public void savingCard(ImageView slot) {
         Image archer = new Image("/photoes/ArchersCard.jpg");
         Image arrow = new Image("/photoes/ArrowsCard.jpg");
@@ -225,12 +264,18 @@ public class deckController {
             user.addToCardNames("wizard");
 
         }
+        Static_User.cardNamesInString = user.getCardNamesInString();
+//        System.out.println(Static_User.cardNamesInString + " C");
     }
 
+    /**
+     * Save cards.
+     *
+     * @param event the event
+     */
     @FXML
     void saveCards(ActionEvent event) {
-        Media media = new Media(new File("D:\\Java Projects\\Royal_P\\src\\sounds\\" +
-                "warfare_swords_x_2_hit_scrape_002.mp3")
+        Media media = new Media(new File("C:\\Users\\HUAWEI\\IdeaProjects\\royal_A\\src\\sounds\\src_sounds_warfare_swords_x_2_hit_scrape_002.mp3")
                 .toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
@@ -251,6 +296,12 @@ public class deckController {
         save(user.getUsername(), this.user);
     }
 
+    /**
+     * Save.
+     *
+     * @param fileName the file name
+     * @param theUser  the the user
+     */
     public void save(String fileName, User theUser) {
         try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -261,6 +312,11 @@ public class deckController {
 
     }
 
+    /**
+     * Choosing archer.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingArcher(MouseEvent event) {
         Image image = new Image("/photoes/ArchersCard.jpg");
@@ -270,6 +326,11 @@ public class deckController {
         ArcherUsed = true;
     }
 
+    /**
+     * Choosing arrows.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingArrows(MouseEvent event) {
         Image image = new Image("/photoes/ArrowsCard.jpg");
@@ -279,6 +340,11 @@ public class deckController {
         ArrowUsed = true;
     }
 
+    /**
+     * Choosing barbarian.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingBarbarian(MouseEvent event) {
         Image image = new Image("/photoes/BarbariansCard.jpg");
@@ -288,6 +354,11 @@ public class deckController {
         barbarianUsed = true;
     }
 
+    /**
+     * Choosing canon.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingCanon(MouseEvent event) {
         Image image = new Image("/photoes/CannonCard.jpg");
@@ -297,6 +368,11 @@ public class deckController {
         cannonUsed = true;
     }
 
+    /**
+     * Choosing dragon.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingDragon(MouseEvent event) {
         Image image = new Image("/photoes/BabyDragonCard.jpg");
@@ -306,6 +382,11 @@ public class deckController {
         dragonUsed = true;
     }
 
+    /**
+     * Choosing fire ball.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingFireBall(MouseEvent event) {
         Image image = new Image("/photoes/FireballCard.jpg");
@@ -315,6 +396,11 @@ public class deckController {
         fireBallUsed = true;
     }
 
+    /**
+     * Choosing giant.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingGiant(MouseEvent event) {
         Image image = new Image("/photoes/GiantCard.jpg");
@@ -324,6 +410,11 @@ public class deckController {
         giantUsed = true;
     }
 
+    /**
+     * Choosing inferno.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingInferno(MouseEvent event) {
         Image image = new Image("/photoes/InfernoTowerCard.jpg");
@@ -333,6 +424,11 @@ public class deckController {
         infernoUsed = true;
     }
 
+    /**
+     * Choosing pekka.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingPekka(MouseEvent event) {
         Image image = new Image("/photoes/Card_icon_Mini_P.E.K.K.A..jpg");
@@ -342,6 +438,11 @@ public class deckController {
         pekkaUsed = true;
     }
 
+    /**
+     * Choosing rage.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingRage(MouseEvent event) {
         Image image = new Image("/photoes/RageCard.jpg");
@@ -351,6 +452,11 @@ public class deckController {
         rageUsed = true;
     }
 
+    /**
+     * Choosing wizard.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingWizard(MouseEvent event) {
         Image image = new Image("/photoes/WizardCard.jpg");
@@ -360,6 +466,11 @@ public class deckController {
         wizardUsed = true;
     }
 
+    /**
+     * Choosingvalkery.
+     *
+     * @param event the event
+     */
     @FXML
     void choosingvalkery(MouseEvent event) {
         Image image = new Image("/photoes/ValkyrieCard.jpg");
@@ -371,6 +482,12 @@ public class deckController {
 //................................................................................................
 
 
+    /**
+     * Delete slot 1.
+     *
+     * @param event the event
+     * @throws InterruptedException the interrupted exception
+     */
     @FXML
     void deleteSlot1(MouseEvent event) throws InterruptedException {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -381,6 +498,11 @@ public class deckController {
 
     }
 
+    /**
+     * Delete slot 2.
+     *
+     * @param event the event
+     */
     @FXML
     void deleteSlot2(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -389,6 +511,11 @@ public class deckController {
         sl2 = false;
     }
 
+    /**
+     * Delete slot 4.
+     *
+     * @param event the event
+     */
     @FXML
     void deleteSlot4(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -397,6 +524,11 @@ public class deckController {
         sl4 = false;
     }
 
+    /**
+     * Delete slot 5.
+     *
+     * @param event the event
+     */
     @FXML
     void deleteSlot5(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -405,6 +537,11 @@ public class deckController {
         sl5 = false;
     }
 
+    /**
+     * Delete slot 6.
+     *
+     * @param event the event
+     */
     @FXML
     void deleteSlot6(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -413,6 +550,11 @@ public class deckController {
         sl6 = false;
     }
 
+    /**
+     * Delete slot 7.
+     *
+     * @param event the event
+     */
     @FXML
     void deleteSlot7(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -421,6 +563,11 @@ public class deckController {
         sl7 = false;
     }
 
+    /**
+     * Delete slot 8.
+     *
+     * @param event the event
+     */
     @FXML
     void deleteSlot8(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");
@@ -429,6 +576,11 @@ public class deckController {
         sl8 = false;
     }
 
+    /**
+     * Selete slot 3.
+     *
+     * @param event the event
+     */
     @FXML
     void seleteSlot3(MouseEvent event) {
         Image image = new Image("/photoes/Clash-Royale-emblem.jpg");

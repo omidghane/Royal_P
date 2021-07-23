@@ -1,10 +1,19 @@
 package Model;
 
+/**
+ * The type Spell.
+ */
 public class Spell extends Card{
+    /**
+     * The Level.
+     */
     protected int level;
     private String ability;
     private double radius;
 
+    /**
+     * Instantiates a new Spell.
+     */
     public Spell(){
 //        super(3);
     }
@@ -19,6 +28,11 @@ public class Spell extends Card{
         return ability;
     }
 
+    /**
+     * Sets ability.
+     *
+     * @param ability the ability
+     */
     public void setAbility(String ability) {
         this.ability = ability;
     }
@@ -28,6 +42,11 @@ public class Spell extends Card{
         return radius;
     }
 
+    /**
+     * Sets radius.
+     *
+     * @param radius the radius
+     */
     public void setRadius(double radius) {
         this.radius = radius;
     }

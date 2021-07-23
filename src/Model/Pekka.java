@@ -2,9 +2,15 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Pekka.
+ */
 public class Pekka extends Troop {
     private int level;
 
+    /**
+     * Instantiates a new Pekka.
+     */
     public Pekka() {
         level = 1;
         card_index = 7;
@@ -23,9 +29,15 @@ public class Pekka extends Troop {
     public void image_newing() {
         card_image = new Image("/photoes/ship (2).png");
         card_image_bar = new Image("/photoes/Card_icon_Mini_P.E.K.K.A..jpg");
+        shut_image = new Image("/photoes/explosion3.png");
     }
 
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){

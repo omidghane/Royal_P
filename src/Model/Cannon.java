@@ -2,10 +2,16 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Cannon.
+ */
 public class Cannon extends Building{
     private int level;
     private int damage;
 
+    /**
+     * Instantiates a new Cannon.
+     */
     public Cannon() {
         level = 1;
         card_index = 11;
@@ -25,6 +31,11 @@ public class Cannon extends Building{
         shut_image = new Image("/photoes/cannonBall.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){
@@ -58,6 +69,11 @@ public class Cannon extends Building{
         return damage;
     }
 
+    /**
+     * Sets damage.
+     *
+     * @param damage the damage
+     */
     public void setDamage(int damage) {
         this.damage = damage;
     }

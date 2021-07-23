@@ -10,92 +10,79 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0"
-            prefWidth="531.0" style="-fx-background-color: #039be5;" xmlns="http://javafx.com/javafx/16"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="531.0" style="-fx-background-color: #039be5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuController">
     <children>
         <ImageView fitHeight="399.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/menu.jpg"/>
+                <Image url="@../menu.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="399.0" fitWidth="266.0" layoutX="266.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/menu.jpg"/>
+                <Image url="@../menu.jpg" />
             </image>
         </ImageView>
-        <Button fx:id="myProfileButton" layoutX="212.0" layoutY="66.0" mnemonicParsing="false" onAction="#profileView"
-                prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="myProfile"
-                textFill="#f2ecec">
+        <Button fx:id="myProfileButton" layoutX="212.0" layoutY="66.0" mnemonicParsing="false" onAction="#profileView" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="myProfile" textFill="#f2ecec">
             <font>
-                <Font name="System Bold" size="21.0"/>
+                <Font name="System Bold" size="21.0" />
             </font>
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Button>
         <Label layoutX="182.0" prefHeight="59.0" prefWidth="199.0" text="welcome" textFill="#4dd0e1fa">
             <font>
-                <Font name="System Bold" size="45.0"/>
+                <Font name="System Bold" size="45.0" />
             </font>
         </Label>
-        <Button fx:id="deckButton" layoutX="212.0" layoutY="133.0" mnemonicParsing="false" onAction="#deckView"
-                prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="BattleDeck"
-                textFill="#f2ecec">
+        <Button fx:id="deckButton" layoutX="212.0" layoutY="133.0" mnemonicParsing="false" onAction="#deckView" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="BattleDeck" textFill="#f2ecec">
             <font>
-                <Font name="System Bold" size="20.0"/>
+                <Font name="System Bold" size="20.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="historyButton" layoutX="212.0" layoutY="200.0" mnemonicParsing="false" onAction="#historyView"
-                prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="BattleHistory"
-                textFill="#f6f1f1">
+        <Button fx:id="historyButton" layoutX="212.0" layoutY="200.0" mnemonicParsing="false" onAction="#historyView" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="BattleHistory" textFill="#f6f1f1">
             <font>
-                <Font name="System Bold" size="17.0"/>
+                <Font name="System Bold" size="17.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="trainingButtton" layoutX="212.0" layoutY="266.0" mnemonicParsing="false"
-                onAction="#trainingCampView" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;"
-                text="trainingCamp" textFill="#f8f6f6">
+        <Button fx:id="trainingButtton" layoutX="212.0" layoutY="266.0" mnemonicParsing="false" onAction="#trainingCampView" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="trainingCamp" textFill="#f8f6f6">
             <font>
-                <Font name="System Bold" size="16.0"/>
+                <Font name="System Bold" size="16.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="Play1v1Button" layoutX="212.0" layoutY="332.0" mnemonicParsing="false" onAction="#play1v1View"
-                prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="Play1v1"
-                textFill="#f4efef">
+        <Button fx:id="Play1v1Button" layoutX="212.0" layoutY="332.0" mnemonicParsing="false" onAction="#play1v1View" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffa000;" text="Play1v1" textFill="#f4efef">
             <font>
-                <Font name="System Bold" size="24.0"/>
+                <Font name="System Bold" size="24.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Button>
     </children>

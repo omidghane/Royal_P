@@ -2,9 +2,15 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Barbarians.
+ */
 public class Barbarians extends Troop{
     private int level;
 
+    /**
+     * Instantiates a new Barbarians.
+     */
     public Barbarians(){
         level =1;
         card_index = 5;
@@ -12,7 +18,7 @@ public class Barbarians extends Troop{
         setHP(300);
         setDamage(75);
         setCost(5);
-        setHit_speed(1.5);
+        setHit_speed(1.4);
         setSpeed(SPEED.MEDIUM);
         setTarget(TARGET.GROUND);
         setRange(0);
@@ -25,8 +31,14 @@ public class Barbarians extends Troop{
     public void image_newing() {
         card_image = new Image("/photoes/ship (4).png");
         card_image_bar = new Image("/photoes/BarbariansCard.jpg");
+        shut_image = new Image("/photoes/explosion3.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
         if(level == 1){
             setHP(300);
@@ -56,6 +68,6 @@ public class Barbarians extends Troop{
 
     @Override
     public String toString() {
-        return "barbarians";
+        return "barbarian";
     }
 }

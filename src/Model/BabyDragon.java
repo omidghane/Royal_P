@@ -2,9 +2,15 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Baby dragon.
+ */
 public class BabyDragon extends Troop{
     private int level;
 
+    /**
+     * Instantiates a new Baby dragon.
+     */
     public BabyDragon(){
         level =1;
         card_index = 3;
@@ -23,8 +29,14 @@ public class BabyDragon extends Troop{
     public void image_newing() {
         card_image = new Image("/photoes/towerDefense_tile270.png");
         card_image_bar = new Image("/photoes/BabyDragonCard.jpg");
+        shut_image = new Image("/photoes/cannonBall.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
         if(level == 1){
             setHP(800);

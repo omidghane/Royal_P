@@ -2,9 +2,15 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Rage.
+ */
 public class Rage extends Spell{
     private double duration;
 
+    /**
+     * Instantiates a new Rage.
+     */
     public Rage(){
         level = 1;
         card_index = 8;
@@ -17,6 +23,7 @@ public class Rage extends Spell{
     @Override
     public void image_newing() {
         card_image = new Image("/photoes/RageCard.jpg");
+        card_image_bar = new Image("/photoes/RageCard.jpg");
     }
 
     @Override
@@ -24,10 +31,20 @@ public class Rage extends Spell{
         return duration;
     }
 
+    /**
+     * Sets duration.
+     *
+     * @param duration the duration
+     */
     public void setDuration(double duration) {
         this.duration = duration;
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
         if(level == 1){
             setDuration(6);

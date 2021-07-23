@@ -4,9 +4,15 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
+/**
+ * The type Archer.
+ */
 public class Archer extends Troop{
     private int level;
 
+    /**
+     * Instantiates a new Archer.
+     */
     public Archer() {
         level = 1;
         card_index = 0;
@@ -25,8 +31,14 @@ public class Archer extends Troop{
     public void image_newing() {
         card_image = new Image("/photoes/ship (1).png");
         card_image_bar = new Image("/photoes/ArchersCard.jpg");
+        shut_image = new Image("/photoes/cannonBall.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){

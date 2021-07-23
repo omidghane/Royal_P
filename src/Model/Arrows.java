@@ -2,9 +2,15 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Arrows.
+ */
 public class Arrows extends Spell{
     private double areaDamage;
 
+    /**
+     * Instantiates a new Arrows.
+     */
     public Arrows(){
         level = 1;
         card_index = 10;
@@ -16,7 +22,9 @@ public class Arrows extends Spell{
 
     @Override
     public void image_newing() {
-        card_image = new Image("/photoes/ArrowsCard.jpg");
+        card_image = new Image("/photoes/tile_73.png");
+        card_image_bar = new Image("/photoes/ArrowsCard.jpg");
+        shut_image = new Image("/photoes/towerDefense_tile298.png");
     }
 
     @Override
@@ -24,10 +32,20 @@ public class Arrows extends Spell{
         return areaDamage;
     }
 
+    /**
+     * Sets area damage.
+     *
+     * @param areaDamage the area damage
+     */
     public void setAreaDamage(double areaDamage) {
         this.areaDamage = areaDamage;
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
         if(level == 1){
             setAreaDamage(144);

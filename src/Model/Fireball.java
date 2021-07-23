@@ -2,10 +2,16 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Fireball.
+ */
 public class Fireball extends Spell{
     private double areaDamage;
 
-        public Fireball(){
+    /**
+     * Instantiates a new Fireball.
+     */
+    public Fireball(){
             level = 1;
             card_index = 9;
             set_level_base();
@@ -16,7 +22,10 @@ public class Fireball extends Spell{
 
     @Override
     public void image_newing() {
-        card_image = new Image("/photoes/FireballCard.jpg");
+        card_image = new Image("/photoes/tile_73.png");
+        card_image_bar = new Image("/photoes/FireballCard.jpg");
+        explode_image = new Image("/photoes/explosion08.png");
+        shut_image = new Image("/photoes/explosion1.png");
     }
 
     @Override
@@ -24,10 +33,20 @@ public class Fireball extends Spell{
         return areaDamage;
     }
 
+    /**
+     * Sets area damage.
+     *
+     * @param areaDamage the area damage
+     */
     public void setAreaDamage(double areaDamage) {
         this.areaDamage = areaDamage;
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
             if(level == 1){
                 setAreaDamage(325);

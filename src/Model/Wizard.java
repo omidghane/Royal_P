@@ -2,15 +2,21 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Wizard.
+ */
 public class Wizard extends Troop{
     private int level;
 
+    /**
+     * Instantiates a new Wizard.
+     */
     public Wizard() {
         level = 1;
         card_index = 6;
         set_level_base();
         setCost(5);
-        setHit_speed(1.7);
+        setHit_speed(1.6);
         setSpeed(SPEED.MEDIUM);
         setTarget(TARGET.GROUND_AIR);
         setRange(5);
@@ -23,9 +29,15 @@ public class Wizard extends Troop{
     public void image_newing() {
         card_image = new Image("/photoes/ship (5).png");
         card_image_bar = new Image("/photoes/WizardCard.jpg");
+        shut_image = new Image("/photoes/cannonBall.png");
     }
 
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){

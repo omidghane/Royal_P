@@ -2,15 +2,21 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * The type Valkyrie.
+ */
 public class Valkyrie extends Troop{
     private int level;
 
+    /**
+     * Instantiates a new Valkyrie.
+     */
     public Valkyrie() {
         level = 1;
         card_index = 1;
         set_level_base();
         setCost(4);
-        setHit_speed(1.5);
+        setHit_speed(1.4);
         setSpeed(SPEED.MEDIUM);
         setTarget(TARGET.GROUND);
         setRange(0);
@@ -23,8 +29,14 @@ public class Valkyrie extends Troop{
     public void image_newing() {
         card_image = new Image("/photoes/ship (3).png");
         card_image_bar = new Image("/photoes/ValkyrieCard.jpg");
+        shut_image = new Image("/photoes/explosion3.png");
     }
 
+    /**
+     * Sets level base.
+     *
+     * @return the level base
+     */
     public int set_level_base() {
 //        int level = super.set_level_base();
         if(level == 1){
