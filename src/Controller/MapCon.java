@@ -40,8 +40,7 @@ public class MapCon {
     private Timer timer;
     private boolean putCard;
     private User user;
-
-    //did not newed
+    
     private Image archer;
     private Image valkyrieImage;
     private Image giant;
@@ -108,16 +107,11 @@ public class MapCon {
         ground[4] = new Image("/photoes/tile_17.png");
         water = new Image("/photoes/tile_73.png");
 
-//        menuController menu = new menuController();
-//        this.user = menu.getUser();
+
         if(this.user == null){
             System.out.println("null 1 s");
         }
-//        playRound = new PlayRound();
-//        playRound.getMe().setMy_user(menu.getUser());
-//        playRound.getMe().set_user_cardBar();
-//        playRound.getMe().initialize_cardBar();
-//        playRound.getBot().initialize_cardBar();
+
     }
 
     /**
@@ -206,16 +200,7 @@ public class MapCon {
             };
             timer.schedule(timerTask,0,500);
 
-//            while (true){
-//                if(putCard){
-//                    System.out.println("break");
-//                    putCard = false;
-//                    break;
-//                }
-//            }
-//            playRound.getMe().update_cardBar(cardImage1.getImage());
-//            cardImage1.setImage(playRound.getMe().getCard_bar().get(3).getCard_image());
-//            cardLable1.setText(playRound.getMe().getCard_bar().get(3).toString());
+
         }else if(event.getSource() == cardImage2){
             timer = new Timer();
             TimerTask timerTask = new TimerTask() {
